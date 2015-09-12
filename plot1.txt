@@ -1,0 +1,6 @@
+power<-read.table("household_power_consumption.txt", header = FALSE, skip = 66637, na.strings = "?", nrows = 48*60, sep = ";")
+h<-read.table("household_power_consumption.txt", header = TRUE, na.strings = "?", nrows = 1, sep = ";")
+names(power)<-names(h)
+hist(power$Global_active_power, breaks = 12, main = "Global Active Power", col = "red", xlab = "Global Active Power (kilowatts)")
+dev.copy(png, "plot1.png")
+dev.off()
